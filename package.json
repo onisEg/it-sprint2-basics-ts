@@ -14,5 +14,8 @@
   "scripts": {
     "test": "npm run test:types && vitest --typecheck",
     "test:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "tsc": "^2.0.4"
   }
 }
