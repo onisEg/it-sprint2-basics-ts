@@ -581,6 +581,9 @@ describe("Problema de tipus de funció amb promeses", () => {
 // Llegeix la documentació de TypeScript sobre Utility Types i esbrina com utilitzar ReturnType per extreure el tipus de retorn de myFunc.
 // Actualitza el codi perquè el següent test passi:
 // type tests = [Expect<Equal<MyFuncReturn, string>>];
+function myFunc(): string{
+  return "hello"
+}
 type MyFuncReturn = ReturnType<typeof myFunc>;
 // Pista: pots utilitzar typeof per obtenir el tipus d'una variable o funció.
 // */
