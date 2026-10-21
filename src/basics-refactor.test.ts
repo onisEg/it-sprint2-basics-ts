@@ -490,46 +490,47 @@ describe("Problema d'intersecció de tipus", () => {
 // Pista: revisa els Utility Types Pick i Omit.
 // */
 
-// describe("Problema d'Omit i Pick", () => {
-//   interface User {
-//     id: string;
-//     firstName: string;
-//     lastName: string;
-//   }
+describe("Problema d'Omit i Pick", () => {
+  interface User {
+    id: string;
+    firstName: string;
+    lastName: string;
+  }
 
-//   /**
-//    * Com creem un nou tipus d'objecte amb NOMÉS les propietats
-//    * firstName i lastName de User?
-//    */
+  /**
+   * Com creem un nou tipus d'objecte amb NOMÉS les propietats
+   * firstName i lastName de User?
+   */
 
-//   type MyType = unknown;
 
-//   type tests = [Expect<Equal<MyType, { firstName: string; lastName: string }>>];
-// });
+  type MyType = Pick<User, "firstName" | "lastName">;
+
+  type tests = [Expect<Equal<MyType, { firstName: string; lastName: string }>>];
+});
 
 // /*
 // Repte 17:
 // La funció 'onFocusChange' is actualment 'unknown'. Visita la documentació de TypeScript i esbrina el tipus apropiat per la funció.
 // */
 
-// describe("Problema de tipus de funció", () => {
+describe("Problema de tipus de funció", () => {
 
-//   const addListener = (onFocusChange: unknown) => {
-//     window.addEventListener("focus", () => {
-//       onFocusChange(true);
-//     });
+  const addListener = (onFocusChange: (isFocused: boolean) => void) => {
+    window.addEventListener("focus", () => {
+      onFocusChange(true);
+    });
 
-//     window.addEventListener("blur", () => {
-//       onFocusChange(false);
-//     });
-//   };
+    window.addEventListener("blur", () => {
+      onFocusChange(false);
+    });
+  };
 
-//   addListener((isFocused) => {
-//     console.log({ isFocused });
+  addListener((isFocused) => {
+    console.log({ isFocused });
 
-//     type tests = [Expect<Equal<typeof isFocused, boolean>>];
-//   });
-// });
+    type tests = [Expect<Equal<typeof isFocused, boolean>>];
+  });
+});
 
 // /*
 // Repte 18:
@@ -581,7 +582,7 @@ describe("Problema de tipus de funció amb promeses", () => {
 // Llegeix la documentació de TypeScript sobre Utility Types i esbrina com utilitzar ReturnType per extreure el tipus de retorn de myFunc.
 // Actualitza el codi perquè el següent test passi:
 // type tests = [Expect<Equal<MyFuncReturn, string>>];
-function myFunc(): string{
+function myFunc(): string {
   return "hello"
 }
 type MyFuncReturn = ReturnType<typeof myFunc>;
