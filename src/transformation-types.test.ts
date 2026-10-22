@@ -276,7 +276,7 @@ describe("Transformació: exclude d'una discriminated union", () => {
             event: KeyboardEvent;
         };
 
-    type NonKeyDownEvents = Extract<Event, { type: "click" | "focus" }>;
+    type NonKeyDownEvents = Exclude<Event, { type: "keydown" }>;
 
     type tests = [
         Expect<

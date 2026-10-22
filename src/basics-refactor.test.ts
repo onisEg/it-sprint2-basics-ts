@@ -231,7 +231,7 @@ describe("Problema d'anotacions de tipus de retorn de funció", () => {
       role: "user",
       posts: [
         { id: 1, title: "post 1" },
-        { id: 1, title: "post 2 " }
+        { id: 2, title: "post 2 " }
       ]
     };
   };
